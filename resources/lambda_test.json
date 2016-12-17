@@ -1,0 +1,46 @@
+{
+  "session": {
+    "new": false,
+    "sessionId": "amzn1.echo-api.session.abcd2o348ua98sduf",
+    "attributes": {},
+    "user": {
+      "userId": "amzn1.ask.account.abcd2o348ua98sduf"
+    },
+    "application": {
+      "applicationId": "amzn1.ask.skill.ff6627b7-e6f1-41df-acda-8bea46d22c5d"
+    }
+  },
+  "version": "1.0",
+  "request": {
+    "locale": "en-US",
+    "timestamp": "2016-10-27T21:06:28Z",
+    "type": "IntentRequest",
+    "requestId": "amzn1.echo-api.request.abcd2o348ua98sduf",
+    "intent": {
+      "slots": {
+          "Route": "426",
+          "Stop": "Salem St @ Cutler Hwy",
+          "Direction": "inbound"
+      },
+      "name": "GetBusPredictionIntent"
+    }
+  },
+  "context": {
+    "AudioPlayer": {
+      "playerActivity": "IDLE"
+    },
+    "System": {
+      "device": {
+        "supportedInterfaces": {
+          "AudioPlayer": {}
+        }
+      },
+      "application": {
+        "applicationId": "amzn1.ask.skill.[unique-value-here]"
+      },
+      "user": {
+        "userId": "amzn1.ask.account.[unique-value-here]"
+      }
+    }
+  }
+}

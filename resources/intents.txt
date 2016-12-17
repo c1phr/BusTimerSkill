@@ -1,0 +1,24 @@
+GetBusPredictionIntent when is the next {Route} bus leaving {Stop}
+GetBusPredictionIntent when will the next {Route} bus leave {Stop}
+GetBusPredictionIntent when will the next {Route} bus be leaving {Stop}
+GetBusPredictionIntent when will the next {Route} bus get to {Stop}
+GetBusPredictionIntent how long until the next {Route} bus gets to {Stop}
+GetBusPredictionIntent how long until the next {Route} bus leaves to {Stop}
+GetBusPredictionIntent when is the next {Direction} {Route} bus leaving {Stop}
+GetBusPredictionIntent when will the next {Direction} {Route} bus leave {Stop}
+GetBusPredictionIntent when will the next {Direction} {Route} bus be leaving {Stop}
+GetBusPredictionIntent when will the next {Direction} {Route} bus get to {Stop}
+GetBusPredictionIntent how long until the next {Direction} {Route} bus gets to {Stop}
+GetBusPredictionIntent how long until the next {Direction} {Route} bus leaves to {Stop}
+GetBusPredictionIntent when is the next {Route} bus going {Direction} leaving {Stop}
+GetBusPredictionIntent when will the next {Route} bus going {Direction} leave {Stop}
+GetBusPredictionIntent when will the next {Route} bus going {Direction} be leaving {Stop}
+GetBusPredictionIntent when will the next {Route} bus going {Direction} get to {Stop}
+GetBusPredictionIntent how long until the next {Route} bus going {Direction} gets to {Stop}
+GetBusPredictionIntent how long until the next {Route} bus going {Direction} leaves to {Stop}
+GetBusPredictionIntent when is the next {Route} bus traveling {Direction} leaving {Stop}
+GetBusPredictionIntent when will the next {Route} bus traveling {Direction} leave {Stop}
+GetBusPredictionIntent when will the next {Route} bus traveling {Direction} be leaving {Stop}
+GetBusPredictionIntent when will the next {Route} bus traveling {Direction} get to {Stop}
+GetBusPredictionIntent how long until the next {Route} bus traveling {Direction} gets to {Stop}
+GetBusPredictionIntent how long until the next {Route} bus traveling {Direction} leaves to {Stop}
