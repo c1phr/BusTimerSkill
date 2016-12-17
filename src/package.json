@@ -1,0 +1,19 @@
+{
+  "name": "bus_timer",
+  "version": "1.0.0",
+  "description": "AWS Lambda function to get MBTA Bus Time",
+  "main": "index.js",
+  "dependencies": {
+    "aws-sdk": "^2.7.13",
+    "request": "^2.79.0",
+    "request-promise-native": "^1.0.3"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "mocha": "^3.2.0"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "author": "Ryan Batchelder"
+}
