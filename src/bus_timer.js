@@ -20,7 +20,10 @@ var getTime = function(route, stop) {
             stop: stop            
         }        
     };
-    return httpGet(predictionOpts).then(function(predictionData) {                
+    return httpGet(predictionOpts).then(function(predictionData) {
+        if (predictionData.mode === undefined) {
+            return undefined;
+        }      
         var predictedMinutes = Math.floor(predictionData.mode[0].route[0].direction[0].trip[0].pre_away / 60);
         return predictedMinutes;
     });
