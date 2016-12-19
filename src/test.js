@@ -11,7 +11,7 @@ describe('bus timer tests', function() {
             .should.eventually.not.equal(undefined);        
     });
     it ('should return a time with a stop, route, and direction', function() {        
-        return bus_timer.getPrediction("426", "Salem Street at Clifton Street", "outbound", process.env['mbta_api'])
+        return bus_timer.getPrediction("1", "Washington Street at Ruggles Sreet", "outbound", process.env['mbta_api'])
             .should.eventually.not.equal(undefined);        
     });
 })
