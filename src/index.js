@@ -54,7 +54,7 @@ BusTimer.prototype.intentHandlers = {
         });        
     },
     "AMAZON.HelpIntent": function (intent, session, response) {
-        response.ask("Ask me when your bus route will arrive at a particular stop.", "Ask me when your bus route will arrive at a particular stop.");
+        response.ask("Ask me when your bus will arrive at a particular stop.", "Ask me when your bus will arrive at a particular stop.");
     },
     "AMAZON.StopIntent": function(intent, session, response) {
         response.cancel();
