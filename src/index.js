@@ -23,8 +23,8 @@ BusTimer.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequ
 
 BusTimer.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
     console.log("BusTimer onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
-    var speechOutput = "Ask me when your bus route will arrive at a particular stop.";
-    var repromptText = "Ask about an MBTA bus";
+    var speechOutput = "Which bus and stop would you like to know about?";
+    var repromptText = "Ask about a Boston area bus";
     response.ask(speechOutput, repromptText);
 };
 
