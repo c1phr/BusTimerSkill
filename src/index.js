@@ -54,7 +54,7 @@ BusTimer.prototype.intentHandlers = {
                 response.tell("I'm sorry, I was unable to find that bus route.");
             }
             else if (err.message === "STOP") {
-                response.tell("I'm sorry, I was unable to find that stop.");
+                response.tell("I'm sorry, I was unable to find that stop on that route.");
             }
             else {
                 response.tell("I'm sorry, I was unable to find that bus or stop.");
