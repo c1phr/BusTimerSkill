@@ -12,8 +12,7 @@ script: npm test
 deploy:
   provider: lambda
   function_name: BusTimer
-  role: arn:aws:iam::856841379672:role/service-role/busTimer
-  handler_name: index.handler
+  role: arn:aws:iam::856841379672:role/service-role/BusTimer
   runtime: nodejs4.3
   access_key_id: AKIAJ5KSMP6VNXFNT66A
   secret_access_key:

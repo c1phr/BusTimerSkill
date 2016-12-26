@@ -14,6 +14,12 @@ var getPrediction = function(route, stop, direction, apiKey) {
 }
 
 var getTime = function(route, stop) {
+    if (route === undefined) {
+        throw Error("ROUTE");
+    }
+    if (stop === undefined) {
+        throw Error("STOP");
+    }
     var predictionOpts = {
         uri: mbtaApi + 'predictionsbystop',
         qs: {            
@@ -23,7 +29,7 @@ var getTime = function(route, stop) {
     return httpGet(predictionOpts).then(function(predictionData) {
         if (predictionData.mode === undefined) {
             return undefined;
-        }      
+        }
         var predictedMinutes = Math.floor(predictionData.mode[0].route[0].direction[0].trip[0].pre_away / 60);
         return predictedMinutes;
     });
@@ -50,7 +56,7 @@ var getRouteId = function(routeName) {
         possibleRoutes.sort(function(a, b) {
             return b.confidence - a.confidence;
         });
-        return possibleRoutes.length > 0 ? possibleRoutes[0].route.route_id : null;
+        return possibleRoutes.length > 0 ? possibleRoutes[0].route.route_id : undefined;
     });
 }
 
@@ -77,7 +83,7 @@ var getStopId = function(route, stopName, directionName) {
         possibleStops.sort(function(a, b) {
             return b.confidence - a.confidence;
         });                        
-        return possibleStops.length > 0 ? possibleStops[0].stop.stop_id : null;
+        return possibleStops.length > 0 ? possibleStops[0].stop.stop_id : undefined;
     });
 }
 

@@ -41,7 +41,7 @@ BusTimer.prototype.intentHandlers = {
         var stop = intent.slots.Stop.value;
         var direction = intent.slots.Direction.value;        
         if (route === undefined || stop === undefined) {
-            response.tell("I'm sorry, I was unable to find that bus or route.");
+            response.tell("I'm sorry, I was unable to find that bus or stop.");
         }
         bus_timer.getPrediction(route, stop, direction, decrypted).then(function(time){
             var responseText = "The next bus will arrive in " + time + " minutes";
@@ -50,7 +50,15 @@ BusTimer.prototype.intentHandlers = {
         })
         .catch(function(err){
             console.log(err);
-            response.tell("I'm sorry, I was unable to find that bus or route.");
+            if (err.message === "ROUTE") {
+                response.tell("I'm sorry, I was unable to find that bus route.");
+            }
+            else if (err.message === "STOP") {
+                response.tell("I'm sorry, I was unable to find that stop.");
+            }
+            else {
+                response.tell("I'm sorry, I was unable to find that bus or stop.");
+            }            
         });        
     },
     "AMAZON.HelpIntent": function (intent, session, response) {
