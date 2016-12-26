@@ -12,9 +12,9 @@ script: npm test
 deploy:
   provider: lambda
   function_name: BusTimer
-  role: arn:aws:iam::856841379672:role/service-role/BusTimer
+  role: arn:aws:iam::856841379672:role/service-role/busTimer
+  handler_name: index.handler
   runtime: nodejs4.3
-  handler_name: index
   access_key_id: AKIAJ5KSMP6VNXFNT66A
   secret_access_key:
     secure: LyDj5BBNX7pXwiFd2FZteSL8Ks0bnqNXQLXPeVWLjjcceuBV5NRRe8JunjBN0IjdCA2l5GQgJ9a1U/Q4Xs/RzZpZRWNmtqiMtuapO/ZbfMhbzYsVcK+1xNKBsW/ugUT+UaDgGV9jENp6rFwTgVh4Tf6kEy8Rlqp4H/+kSAN/+asWkJXtnT3Zxy1HOaOoJtEks5HvSod2nWbT9OpHtPbgbV8WNXSdyarqEaTrvuQvHTX3Jfefrv5MUL3+O+sSj+jX5UP0J54Hav7/CzTRDKMOz3lCjOBA+BF7mJ1NE/sEKU97a/fU0I3oyTCU1Z2e1JEnVC+tYGRDiNZQqFVochp/kMg88X1t0VnqK392D5YFmI10uPph0IzG5WBSzgDBbkr9XyfBcMuroWW1CruXh98VQQzxuMD+pJ0N/F8SJGhhRROVdYPeukGv8BDcojmexbfN+UX5tX/NthK5IsUbtB5klUsBXjOeirvrRpPHAPsLAeU5WyL2GbRDBYtdeozlzV5eiuM7hcx/ruYqJwcr8HHmCANz4auS/0y9S66eK7QhqBHcKV0vkQ+OiiByNGVZgJnrnXwTMm7vR/a4pNbwDndQt6wSBOgWS3sR2c/uwuRtpfMMAlgjZO8pt6dCYPAsh2VKXofZZdOxvdqc07hrZ5Jffou/h0uM+SduGPGXg7RQsKs=
