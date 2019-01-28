@@ -5,10 +5,7 @@ const mbtaApi = 'https://api-v3.mbta.com/';
 var api_key;
 
 var getPrediction = function(route, stop, direction, apiKey) {
-    console.log("Get Prediction called with Route: " + route + " Stop: " + stop + " Direction: " + direction);    
-    if (direction === undefined) {
-        throw Error("DIRECTION");
-    }
+    console.log("Get Prediction called with Route: " + route + " Stop: " + stop + " Direction: " + direction);
     api_key = apiKey;
     return getRoute(route).then(function(route) {        
         var routeId = route.id    
@@ -18,7 +15,7 @@ var getPrediction = function(route, stop, direction, apiKey) {
         });    
     }).catch(function(exception) {
         console.error(exception);
-        return undefined;
+        return null;
     });
 }
 
@@ -83,10 +80,12 @@ var getStopId = function(route, stopName, directionIdx) {
     var stopOpts = {
         uri: mbtaApi + 'stops',
         qs: {
-            "filter[route]": route,
-            "filter[direction_id]": directionIdx
+            "filter[route]": route            
         }
     };
+    if (directionIdx !== null) {
+        stopOpts.qs["filter[direction_id]"] = directionIdx;
+    }
     stopName = stopName.toLowerCase();
     return httpGet(stopOpts).then(function(stops) {
         var possibleStops = [];        
@@ -119,8 +118,11 @@ var fuzzyMatch = function(source, toMatch) {
 
 var findDirectionId = function(directionIntent, directionArray) {
     var dirIntent = directionIntent.toLowerCase();
-    var dirArray = directionArray.map(function(dir) { return dir.toLowerCase(); });
-    return dirArray.indexOf(dirIntent);
+    if (directionArray.length > 0) {
+        var dirArray = directionArray.map(function(dir) { return dir.toLowerCase(); });
+        return dirArray.indexOf(dirIntent);
+    }
+    return null;
 }
 
 var httpGet = function(opts, callback) {
