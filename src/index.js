@@ -44,7 +44,13 @@ BusTimer.prototype.intentHandlers = {
             response.tell("I'm sorry, I was unable to find that bus or stop.");
         }
         bus_timer.getPrediction(route, stop, direction, decrypted).then(function(time){
-            var responseText = "The next bus will arrive in " + time + " minutes";
+            var responseText;
+            if (time === undefined || time === null) {
+                responseText = "I'm sorry, I was unable to find an arrival time for a bus at that stop.";
+            }
+            else {
+                responseText = "The next bus will arrive in " + time + " minutes";
+            }            
             console.log(responseText);
             response.tellWithCard(responseText, "MBTA " + route + " - " + stop, responseText);            
         })

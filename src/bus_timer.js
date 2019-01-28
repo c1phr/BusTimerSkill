@@ -32,8 +32,7 @@ var getTime = function(route, stop) {
             "filter[stop]": stop
         }
     };
-    return httpGet(predictionOpts).then(function(predictionData) {
-        console.log(predictionData.data[0].attributes)
+    return httpGet(predictionOpts).then(function(predictionData) {        
         if (predictionData.data === undefined || predictionData.data.length === 0 || predictionData.data[0].attributes.arrival_time === undefined) {
             return undefined;
         }
