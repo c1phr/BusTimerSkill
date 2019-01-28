@@ -8,8 +8,11 @@ var getPrediction = function(route, stop, direction, apiKey) {
     console.log("Get Prediction called with Route: " + route + " Stop: " + stop + " Direction: " + direction);
     api_key = apiKey;
     return getRoute(route).then(function(route) {        
-        var routeId = route.id    
-        var directionIdx = findDirectionId(direction, route.attributes.direction_names);
+        var routeId = route.id;
+        var directionIdx = null;
+        if (direction !== undefined) {
+            directionIdx = findDirectionId(direction, route.attributes.direction_names);
+        }        
         return getStopId(routeId, stop, directionIdx).then(function(stopId) {        
             return getTime(routeId, stopId);
         });    
@@ -116,8 +119,8 @@ var fuzzyMatch = function(source, toMatch) {
 }
 
 var findDirectionId = function(directionIntent, directionArray) {
-    var dirIntent = directionIntent.toLowerCase();
     if (directionArray.length > 0) {
+        var dirIntent = directionIntent.toLowerCase();
         var dirArray = directionArray.map(function(dir) { return dir.toLowerCase(); });
         return dirArray.indexOf(dirIntent);
     }
@@ -142,6 +145,6 @@ var convertDateToUTC = function(date) {
 
 exports.getPrediction = getPrediction;
 
-// getPrediction("4", "second ave at south ave", "outbound", process.env["mbta_api"]).then(function(prediction) {
+// getPrediction("426", "Wonderland", undefined, process.env["mbta_api"]).then(function(prediction) {
 //     console.log(prediction);
 // });
