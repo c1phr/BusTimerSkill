@@ -6,6 +6,9 @@ var api_key;
 
 var getPrediction = function(route, stop, direction, apiKey) {
     console.log("Get Prediction called with Route: " + route + " Stop: " + stop + " Direction: " + direction);    
+    if (direction === undefined) {
+        throw Error("DIRECTION");
+    }
     api_key = apiKey;
     return getRoute(route).then(function(route) {        
         var routeId = route.id    
@@ -37,7 +40,8 @@ var getTime = function(route, stop) {
         if (predictionData.data === undefined || predictionData.data.length === 0 || predictionData.data[0].attributes.arrival_time === undefined) {
             return undefined;
         }
-        var predictedArrival = convertDateToUTC(new Date(predictionData.data[0].attributes.arrival_time));
+        var timeToUse = predictionData.data[0].attributes.arrival_time === undefined ? predictionData.data[0].attributes.departure_time : predictionData.data[0].attributes.arrival_time;
+        var predictedArrival = convertDateToUTC(new Date(timeToUse));
         var now = convertDateToUTC(new Date());
         var diffDate = Math.abs(predictedArrival - now);
         return Math.floor((diffDate/1000)/60);
@@ -136,6 +140,6 @@ var convertDateToUTC = function(date) {
 
 exports.getPrediction = getPrediction;
 
-// getPrediction("426", "Salem St @ Cutler Highway", "Inbound").then(function(prediction) {
+// getPrediction("4", "second ave at south ave", "outbound", process.env["mbta_api"]).then(function(prediction) {
 //     console.log(prediction);
 // });

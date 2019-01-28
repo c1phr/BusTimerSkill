@@ -56,6 +56,9 @@ BusTimer.prototype.intentHandlers = {
             else if (err.message === "STOP") {
                 response.tell("I'm sorry, I was unable to find that stop on that route.");
             }
+            else if (err.message === "DIRECTION") {
+                response.tell("I'm sorry, please include a direction such as Inbound or Outbound in your request.");
+            }
             else {
                 response.tell("I'm sorry, I was unable to find that bus or stop.");
             }            
