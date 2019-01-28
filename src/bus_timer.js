@@ -37,7 +37,7 @@ var getTime = function(route, stop) {
         if (predictionData.data === undefined || predictionData.data.length === 0 || predictionData.data[0].attributes.arrival_time === undefined) {
             return undefined;
         }
-        var timeToUse = predictionData.data[0].attributes.arrival_time === undefined ? predictionData.data[0].attributes.departure_time : predictionData.data[0].attributes.arrival_time;
+        var timeToUse = predictionData.data[0].attributes.arrival_time === null ? predictionData.data[0].attributes.departure_time : predictionData.data[0].attributes.arrival_time;
         var predictedArrival = convertDateToUTC(new Date(timeToUse));
         var now = convertDateToUTC(new Date());
         var diffDate = Math.abs(predictedArrival - now);
@@ -126,6 +126,7 @@ var findDirectionId = function(directionIntent, directionArray) {
 }
 
 var httpGet = function(opts, callback) {
+    console.log(opts);
     opts.qs.api_key = api_key;
     opts.qs.format = 'json';
     opts.json = true;    
